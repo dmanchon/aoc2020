@@ -12,5 +12,5 @@
 
 (defn -main
   [& args]
-  (println (run day1/part2 "day1.txt"))
-  (println (run day1/part1 "day1.txt")))
+  (println (time (run day1/part2 "day1.txt")))
+  (println (time (run day1/part1 "day1.txt"))))
