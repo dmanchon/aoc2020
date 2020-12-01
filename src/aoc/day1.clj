@@ -11,7 +11,7 @@
         sums (for [x lst y lst
                    :when (= target-sum (+ x y))]
                (* x y))]
-    (first (take 1 sums))))
+    (first sums)))
 
 (defn part2 [lines]
   (let [target-sum 2020
@@ -24,4 +24,4 @@
         sums (for [x lst y lst z lst
                    :when (= target-sum (+ x y z))]
                (* x y z))]
-    (first (take 1 sums))))
+    (first sums)))
