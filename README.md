@@ -1,32 +1,10 @@
-# aoc
+![Clojure CI](https://github.com/dmanchon/aoc2020/workflows/Clojure%20CI/badge.svg)
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
 
-    $ java -jar aoc-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+    $ lein test
 
 ## License
 
@@ -42,3 +20,4 @@ Public License, v. 2.0 are satisfied: GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or (at your
 option) any later version, with the GNU Classpath Exception which is available
 at https://www.gnu.org/software/classpath/license.html.
+
