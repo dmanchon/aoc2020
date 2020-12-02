@@ -16,8 +16,8 @@
 
 (deftest day2-1
   (testing "Day2 part1 solution"
-    (is (= 506 (run day2/part1 "day2.txt")))))
+    (is (= 603 (run day2/part1 "day2.txt")))))
 
 (deftest day2-2
   (testing "Day2 part2 solution"
-    (is (= 443 (run day2/part2 "day2.txt")))))
+    (is (= 404 (run day2/part2 "day2.txt")))))
