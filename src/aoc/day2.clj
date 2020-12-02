@@ -5,7 +5,7 @@
   (let [[constraint target password] (str/split line #" ")
         [min max] (map #(Integer/parseInt %) (str/split constraint #"-"))
         target (first (seq (str/replace target #":" "")))
-        length (count (filter #(= % target) (seq password)))]
+        length (count (filter (partial = target) (seq password)))]
     (<= min length max)))
 
 (defn legacy-valid? [line]
