@@ -2,7 +2,8 @@
   (:require [clojure.test :refer :all]
             [aoc.core :refer :all]
             [aoc.day1 :as day1]
-            [aoc.day2 :as day2]))
+            [aoc.day2 :as day2]
+            [aoc.day3 :as day3]))
 
 ;;solutions
 
@@ -21,3 +22,11 @@
 (deftest day2-2
   (testing "Day2 part2 solution"
     (is (= 404 (run day2/part2 "day2.txt")))))
+
+(deftest day3-1
+  (testing "Day3 part1 solution"
+    (is (= 198 (run day3/part1 "day3.txt")))))
+
+(deftest day3-2
+  (testing "Day3 part2 solution"
+    (is (= 5140884672 (run day3/part2 "day3.txt")))))

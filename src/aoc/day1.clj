@@ -5,9 +5,7 @@
         smaller? #(< % target-sum)
         lst (->> lines
                  (map #(Integer/parseInt %))
-                 (sort #(compare %2 %1))
-                 (filter smaller?)
-                 doall)
+                 (filter smaller?))
         sums (for [x lst y lst
                    :when (= target-sum (+ x y))]
                (* x y))]
@@ -18,9 +16,7 @@
         smaller? #(< % target-sum)
         lst (->> lines
                  (map #(Integer/parseInt %))
-                 (sort #(compare %2 %1))
-                 (filter smaller?)
-                 doall)
+                 (filter smaller?))
         sums (for [x lst y lst z lst
                    :when (= target-sum (+ x y z))]
                (* x y z))]
