@@ -44,3 +44,7 @@
 (deftest day5-1
   (testing "Day5 part1 solution"
     (is (= 928 (run day5/part1 "day5.txt")))))
+
+(deftest day5-2
+  (testing "Day5 part2 solution"
+    (is (= 610 (run day5/part2 "day5.txt")))))

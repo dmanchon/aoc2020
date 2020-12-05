@@ -16,3 +16,9 @@
   (apply max (->> (doall lines)
             (map boarding->binary ,,,)
             (map calc-id ,,,))))
+
+(defn part2 [lines]
+  (let [sorted (sort (->> (doall lines)
+                          (map boarding->binary ,,,)
+                          (map calc-id ,,,)))]
+    (inc (nth sorted (.indexOf (map - (rest sorted) sorted) 2)))))
