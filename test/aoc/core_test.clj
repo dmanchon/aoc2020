@@ -4,7 +4,8 @@
             [aoc.day1 :as day1]
             [aoc.day2 :as day2]
             [aoc.day3 :as day3]
-            [aoc.day4 :as day4]))
+            [aoc.day4 :as day4]
+            [aoc.day5 :as day5]))
 
 ;;solutions
 
@@ -36,7 +37,10 @@
   (testing "Day4 part1 solution"
     (is (= 254 (run day4/part1 "day4.txt")))))
 
-
 (deftest day4-2
   (testing "Day4 part2 solution"
     (is (= 184 (run day4/part2 "day4.txt")))))
+
+(deftest day5-1
+  (testing "Day5 part1 solution"
+    (is (= 928 (run day5/part1 "day5.txt")))))
