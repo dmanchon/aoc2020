@@ -3,7 +3,8 @@
             [aoc.core :refer :all]
             [aoc.day1 :as day1]
             [aoc.day2 :as day2]
-            [aoc.day3 :as day3]))
+            [aoc.day3 :as day3]
+            [aoc.day4 :as day4]))
 
 ;;solutions
 
@@ -30,3 +31,7 @@
 (deftest day3-2
   (testing "Day3 part2 solution"
     (is (= 5140884672 (run day3/part2 "day3.txt")))))
+
+(deftest day4-1
+  (testing "Day4 part1 solution"
+    (is (= 254 (run day4/part1 "day4.txt")))))
