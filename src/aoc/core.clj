@@ -4,7 +4,8 @@
             [aoc.day2 :as day2]
             [aoc.day3 :as day3]
             [aoc.day4 :as day4]
-            [aoc.day5 :as day5])
+            [aoc.day5 :as day5]
+            [aoc.day6 :as day6])
   (:gen-class))
 
 (defn run [fn filename]
@@ -16,6 +17,7 @@
 
 (defn -main
   [& args]
+  (println (time (run day6/part1 "day6.txt")))
   (println (time (run day5/part2 "day5.txt")))
   (println (time (run day5/part1 "day5.txt")))
   (println (time (run day4/part2 "day4.txt")))
@@ -25,4 +27,5 @@
   (println (time (run day2/part2 "day2.txt")))
   (println (time (run day2/part1 "day2.txt")))
   (println (time (run day1/part2 "day1.txt")))
-  (println (time (run day1/part1 "day1.txt"))))
+  (println (time (run day1/part1 "day1.txt")))
+  )
