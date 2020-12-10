@@ -2,24 +2,24 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
-(def data (->> "sample.day7.txt"
-               io/resource
-               io/reader
-               line-seq))
+(defn parse [line]
+  (let [[[_ _ container] & others] (re-seq #"(?:^|(\d+ ))(\w+ \w+) bags?" line)]
+    (assoc {}
+           (keyword (str/replace container #" " "-"))
+           (apply merge (map (fn [[_ num color]] (assoc {} (keyword (str/replace color #" " "-")) (Long/parseLong (str/trimr num)))) others)))))
 
-(def line (first data))
+(defn contains-bag? [container bag bags]
+  (some? (bag (container bags))))
 
-(def l1 "light red bags contain 1 bright white bag, 2 muted yellow bags.")
+(defn can-contain? [bags bag]
+  (map #(when (contains-bag? (key %) bag bags)
+          (cons (key %) (can-contain? bags (key %)))) bags))
 
-(let [[container other](str/split line #"bags contain")
-      containees (str/split other #"[,.]")]
-  (map #(re-find #"\s?(\d+)\s\w+\s\w+)\sbags?[,.]" %) containees))
+(defn part1 [lines]
+  (let [bags (apply merge (map parse lines))]
+    (count
+     (set
+      (filter some? (flatten (can-contain? bags :shiny-gold)))))))
 
-(str/split l1 #" bags contain ")
-
-(def l2 "1 bright white bag, 2 muted yellow bags.")
-
-(str/split l2 #"[.,]")
-
-
-(map #(re-find #"(\d+)\s(\w+\s\w+)\sbags?" %) (str/split l2 #"[,.]"))
+(defn part2 [lines]
+  )
