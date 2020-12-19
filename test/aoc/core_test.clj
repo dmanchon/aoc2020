@@ -57,3 +57,7 @@
 (deftest day6-2
   (testing "Day6 part2 solution"
     (is (= 3197 (run day6/part2 "day6.txt")))))
+
+(deftest day7-1
+  (testing "Day7 part2 solution"
+    (is (= 119 (run day7/part1 "day7.txt")))))
