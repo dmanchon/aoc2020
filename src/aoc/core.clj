@@ -19,6 +19,7 @@
 
 (defn -main
   [& args]
+  (println (time (run day8/part2 "day8.txt")))
   (println (time (run day8/part1 "day8.txt")))
   (println (time (run day7/part2 "day7.txt")))
   (println (time (run day7/part1 "day7.txt")))

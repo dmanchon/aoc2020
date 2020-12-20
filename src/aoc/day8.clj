@@ -12,14 +12,30 @@
     (case op
       :nop [(inc ip) acc history]
       :jmp [(+ ip val) acc history]
-      :acc [(inc ip) (+ acc val) history])))
+      :acc [(inc ip) (+ acc val) history]
+      :end [nil acc history])))
 
-(defn run [program [ip acc history]]
-  (if (contains? (set history) ip) acc
-      (let [state (step [ip acc history] program)]
-        (run program state))))
+(defn run [program [ip acc history] stop?]
+  (if (stop? [ip acc history])
+    [ip acc]
+    (let [state (step [ip acc history] program)]
+      (run program state stop?))))
+
 
 (defn part1 [lines]
-  (let [program (map parse-line (doall lines))
-        state [0 0 ()]]
-    (run program state)))
+  (let [program (vec (map parse-line (doall lines)))
+        state [0 0 ()]
+        stop? (fn [[ip acc history]] (contains? (set history) ip))]
+    (second (run program state stop?))))
+
+(defn part2 [lines]
+  (let [lines (doall lines)
+        stop? (fn [[ip acc history]] (or (nil? ip) (contains? (set history) ip)))
+        state [0 0 ()]
+        original (vec (map parse-line (doall lines)))]
+    (first
+          (map second
+               (filter #(nil? (first %))
+                       (for [i (range (count lines))]
+                         (let [program (update-in original [i 0] {:jmp :nop :nop :jmp :acc :acc})]
+                           (run (conj program [:end 0]) state stop?))))))))
